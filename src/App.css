@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.radio-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.radio-button-container .custom-control-label {
+  text-align: center;
+}
