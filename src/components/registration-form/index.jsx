@@ -114,7 +114,7 @@ export default function RegisterForm() {
         <Form.Label>Password</Form.Label>
         <Form.Control 
           type="password" 
-          placeholder="Enter your password" 
+          placeholder="Enter your password   " 
           name="password" 
           value={user.password} 
           onChange={handleChange} 
