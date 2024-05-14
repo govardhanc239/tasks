@@ -1,7 +1,7 @@
 import './App.css';
 import { Provider } from 'react-redux';
 import  store from './components/store'
-import Navigate from './components/navigation';
+import Navigate from './components/user-registration/navigation'
 function App() {
   return (
     <div className="App">

@@ -1,0 +1,35 @@
+{
+  "registerUsers": [
+    {
+      "id": "68e1",
+      "name": "Govardhan Reddy CHAPPIDI",
+      "email": "vardhan.smart26@gmail.com",
+      "gender": "female",
+      "role": "manager",
+      "password": "Asdf@1234",
+      "confirmPassword": "Asdf@1234",
+      "terms": "on"
+    },
+    
+    {
+      "id": "c80a",
+      "name": "Gowtham",
+      "email": "Gowtham@gmail.com",
+      "gender": "male",
+      "role": "manager",
+      "password": "Asdf@1234",
+      "confirmPassword": "Asdf@1234",
+      "terms": "on"
+    },
+    {
+      "id": "8488",
+      "name": "prasanth",
+      "email": "prasanth@gmail.com",
+      "gender": "male",
+      "role": "CEO",
+      "password": "Asdf@1234",
+      "confirmPassword": "Asdf@1234",
+      "terms": "on"
+    }
+  ]
+}

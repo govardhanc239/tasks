@@ -25,6 +25,26 @@ const Dashboard = ({ loggedUser }) => {
              tasked with the responsibility of guiding teams, driving performance, 
             and fostering a culture of collaboration and innovation.</p>
           </>)}
+          {(loggedUser.role === 'assistant') && 
+          (
+            <>
+               <h3>Hello,{loggedUser.name}!!</h3>
+               <h4>{loggedUser.role}</h4>
+               <p style={{backgroundColor :"grey"}} >In a corporate office setting, the term 'assistant' typically refers to a support
+                 staff member who aids executives,
+                 managers, or other employees in various administrative tasks.</p>
+            </>
+          )}
+          {(loggedUser.role === 'CEO') && 
+          (
+            <>
+               <h3>Hello,{loggedUser.name}!!</h3>
+               <h4>{loggedUser.role}</h4>
+               <p style={{backgroundColor :"blue"}}>In a corporate office setting, the term 'CEO' typically refers to a support
+                 staff member who aids executives,
+                 managers, or other employees in various administrative tasks.</p>
+            </>
+          )}
     </div>
   );
 };

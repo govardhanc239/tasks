@@ -3,8 +3,8 @@ import { Form, Button  } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-import { registerUser } from '../actions';
-import { isPasswordValid } from '../validations';
+import { registerUser } from '../../actions';
+import { isPasswordValid , isPasswordMatch} from '../validations';
 
 export default function RegisterForm() {
     const [user,setUser] = useState({
@@ -16,6 +16,9 @@ export default function RegisterForm() {
         confirmPassword :'',
         terms :''
     });
+    const [errors,setErrors] = useState({
+      passwordValid : '',
+      passwordMatch : ''    })
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleChange=(e)=>{
@@ -28,7 +31,7 @@ export default function RegisterForm() {
     const handleSubmit=(e)=>{
       e.preventDefault();
       dispatch(registerUser(user))
-      fetch('http://localhost:3000/users',{
+      fetch('http://localhost:3000/registerUsers',{
         method :"POST",
         headers :{
           'Content-type' :"application/json"
@@ -37,8 +40,15 @@ export default function RegisterForm() {
       })
       .then(res=>res.json())
       .then(data=>console.log(data))
-     alert("Registration Successfully!!")
-     navigate('/login')
+      setErrors({
+        passwordValid : isPasswordValid(user.password) ? '' : "The password must contain one uppercase letter, one number, and one symbol. It must also have at least 8 letters.",
+        passwordMatch : isPasswordMatch(user.password,user.confirmPassword) ? '': "passwords did not match"
+      })
+      if(isPasswordValid(user.password) && isPasswordMatch(user.password,user.confirmPassword)) {
+        alert("Registration Successfully!!")
+        navigate('/login')
+      }
+      
     }
   return (
     <div>
@@ -75,6 +85,7 @@ export default function RegisterForm() {
           value='male'
           checked={user.gender === 'male'}
           onChange={handleChange}
+          required
         />
         <Form.Check
           type='radio'
@@ -120,8 +131,7 @@ export default function RegisterForm() {
           onChange={handleChange} 
           required
         />
-        {!isPasswordValid(user.password)&& <p>Password must contain at least one uppercase letter,
-             one symbol, one digit, and be at least 8 characters long.'</p>}
+       {errors.passwordValid && <p style={{color: "red"}} >{errors.passwordValid}</p>} 
       </Form.Group>
       <Form.Group controlId="formConfirmPassword">
         <Form.Label> Confirm Password</Form.Label>
@@ -133,6 +143,7 @@ export default function RegisterForm() {
           onChange={handleChange} 
           required
         />
+      {errors.passwordMatch && <p style={{color: "red"}} >{errors.passwordMatch}</p>} 
       </Form.Group>
       <Form.Group controlId="terms">
         <Form.Check 
