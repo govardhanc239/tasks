@@ -5,7 +5,7 @@ const Dashboard = ({ loggedUser }) => {
   const navigate = useNavigate();
   return (
     <div>
-      <button style={{alignItems:"right"}} type="button" onClick={()=>navigate('/login')} >logout</button>
+      <button style={{alignItems:"right"}} type="button" onClick={navigate('/login')} >logout</button>
       <h2 style={{ textAlign: "center" }}>Dashboard</h2>
       {(loggedUser.role ==="user") &&
       (

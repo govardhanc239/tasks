@@ -10,7 +10,6 @@
       "confirmPassword": "Asdf@1234",
       "terms": "on"
     },
-    
     {
       "id": "c80a",
       "name": "Gowtham",
@@ -27,6 +26,56 @@
       "email": "prasanth@gmail.com",
       "gender": "male",
       "role": "CEO",
+      "password": "Asdf@1234",
+      "confirmPassword": "Asdf@1234",
+      "terms": "on"
+    },
+    {
+      "id": "5d98",
+      "name": "vinod",
+      "email": "vinod@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "password": "Asdf@1234",
+      "confirmPassword": "Asdf@1234",
+      "terms": "on"
+    },
+    {
+      "id": "8421",
+      "name": "govardhan",
+      "email": "govardhanc.in@mouritech.com",
+      "gender": "female",
+      "role": "admin",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "terms": "on"
+    },
+    {
+      "id": "9cdc",
+      "name": "govardhan",
+      "email": "govardhanc.in@mouritech.com",
+      "gender": "female",
+      "role": "admin",
+      "password": "Asdf@1234",
+      "confirmPassword": "12345656",
+      "terms": "on"
+    },
+    {
+      "id": "4d9a",
+      "name": "govardhan",
+      "email": "govardhanc.in@mouritech.com",
+      "gender": "female",
+      "role": "admin",
+      "password": "Asdf@1234",
+      "confirmPassword": "Asdf@1234",
+      "terms": "on"
+    },
+    {
+      "id": "25a9",
+      "name": "vardhan",
+      "email": "vardhan@gmail.com",
+      "gender": "male",
+      "role": "assistant",
       "password": "Asdf@1234",
       "confirmPassword": "Asdf@1234",
       "terms": "on"
