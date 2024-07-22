@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch, useSelector } from 'react-redux';
 
 function EventInstanceForm() {
+
+  const dispatch = useDispatch();
+  const events = useSelector(state=>state.event.events);
+  const locations = useSelector(state=>state.location.locations)
   const [eventInstanceFormData, setEventInstanceFormData] = useState({
     eventId: '',
     locationId: '',

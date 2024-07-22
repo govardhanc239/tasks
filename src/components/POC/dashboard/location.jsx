@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addLocation } from '../react-config/actions';
 
 function LocationForm() {
+  const dispatch = useDispatch();
+  const locations = useSelector(state=>state.location.locations);
   const [formData, setFormData] = useState({
     locationId: '',
     locationName: '',
@@ -10,7 +14,7 @@ function LocationForm() {
     contact: ''
   });
 
-  const [locations, setLocations] = useState([]);
+  // const [locations, setLocations] = useState([]);
   const [formVisible, setFormVisible] = useState(false);
 
   const handleChange = (e) => {
@@ -20,7 +24,8 @@ function LocationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLocations([...locations, formData]);
+    dispatch(addLocation(formData))
+    // setLocations([...locations, formData]);
     setFormData({
       locationId: '',
       locationName: '',

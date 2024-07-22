@@ -12,8 +12,8 @@ const LoginForm = () => {
     password: '',
   });
   const navigate = useNavigate();
-  const loggedInUser = useSelector(state => state.loggedInUser);
-  const status = useSelector(state => state.status);
+  const loggedInUser = useSelector(state => state.user.loggedInUser);
+  const status = useSelector(state => state.user.status);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,16 +23,25 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(formData));
+    console.log("current user", loggedInUser,status);
 
-    setTimeout(() => {
-      if (status || loggedInUser) {
-        toast.success('Login successful! 🎉');
-        navigate('/dashboard');
-      } else {
-        toast.error('Login failed. Incorrect credentials or user does not exist. ❌');
-      }
-      console.log("current user", loggedInUser);
-    }, 500); // Delay to ensure state is updated
+    if (loggedInUser || status) {
+      toast.success('Login successful! 🎉');
+      setTimeout(()=>navigate('/dashboard'),1000);
+    } else {
+      toast.error('Login failed. Incorrect credentials or user does not exist. ❌');
+    }
+
+
+    // setTimeout(() => {
+    //   if (loggedInUser) {
+    //     toast.success('Login successful! 🎉');
+    //     navigate('/dashboard');
+    //   } else {
+    //     toast.error('Login failed. Incorrect credentials or user does not exist. ❌');
+    //   }
+    //   console.log("current user", loggedInUser);
+    // }, 500); // Delay to ensure state is updated
   };
   // useEffect(()=>{
   //   if(loggedInUser !== null){

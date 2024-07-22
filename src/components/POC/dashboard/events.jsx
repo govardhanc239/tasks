@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addEvent } from '../react-config/actions';
 
 function EventForm() {
+  const dispatch = useDispatch();
+  const events = useSelector(state=>state.event.events)
   const [eventFormData, setEventFormData] = useState({
     eventId: '',
     eventName: '',
@@ -10,7 +14,7 @@ function EventForm() {
     isActive: false
   });
 
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
   const [formVisible, setFormVisible] = useState(false);
 
   const handleChange = (e) => {
@@ -21,7 +25,8 @@ function EventForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setEvents([...events, eventFormData]);
+    dispatch(addEvent(eventFormData))
+    // setEvents([...events, eventFormData]);
     setEventFormData({
       eventId: '',
       eventName: '',
