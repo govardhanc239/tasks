@@ -20,7 +20,7 @@ function EventInstanceForm() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    const val = type === 'checkbox' ? checked : value;
+    const val = type === 'checkbox'? checked : value;
     setEventInstanceFormData({ ...eventInstanceFormData, [name]: val });
   };
 
@@ -39,13 +39,13 @@ function EventInstanceForm() {
 
   return (
     <div className="card mt-3 p-5">
-      <h2>Event Instance Details</h2>
+      <h2>Event Instance-Details</h2>
       <div className="d-flex justify-content-end mb-3">
         <button className="btn btn-primary" onClick={() => setFormVisible(!formVisible)}>Add Event Instance</button>
       </div>
       <form onSubmit={handleSubmit} style={{ display: formVisible ? 'block' : 'none' }}>
         <div className="mb-3">
-          <label htmlFor="eventId" className="form-label">Event ID:</label>
+          <label htmlFor="eventId" className="form-label">EventID:</label>
           <input type="text" className="form-control" id="eventId" name="eventId" value={eventInstanceFormData.eventId} onChange={handleChange} />
         </div>
         <div className="mb-3">
@@ -53,11 +53,11 @@ function EventInstanceForm() {
           <input type="text" className="form-control" id="locationId" name="locationId" value={eventInstanceFormData.locationId} onChange={handleChange} />
         </div>
         <div className="mb-3">
-          <label htmlFor="startTime" className="form-label">Start Time:</label>
+          <label htmlFor="startTime" className="form-label">Start Time</label>
           <input type="text" className="form-control" id="startTime" name="startTime" value={eventInstanceFormData.startTime} onChange={handleChange} />
         </div>
         <div className="mb-3">
-          <label htmlFor="endTime" className="form-label">End Time:</label>
+          <label htmlFor="endTime" className="form-label">End Time</label>
           <input type="text" className="form-control" id="endTime" name="endTime" value={eventInstanceFormData.endTime} onChange={handleChange} />
         </div>
         <div className="mb-3 form-check">
